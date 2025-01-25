@@ -31,7 +31,7 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:8000/api/users/login/', credentials);
-      login(response.data.user, response.data.token);
+      login(response.data.user, response.data.access);
       navigate('/tasks');
     } catch (error) {
       setError('Error al iniciar sesión');
