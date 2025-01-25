@@ -18,9 +18,11 @@ import {
   MenuItem,
 } from '@mui/material';
 import { Edit as EditIcon, Delete as DeleteIcon, Add as AddIcon } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 function Tasks() {
-  const { token } = useAuth();
+  const navigate = useNavigate();
+  const { token, logout } = useAuth();
   const [tasks, setTasks] = useState([]);
   const [openDialog, setOpenDialog] = useState(false);
   const [editingTask, setEditingTask] = useState(null);
@@ -121,12 +123,26 @@ function Tasks() {
     });
   };
 
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+
   return (
     <Container>
       <Box sx={{ mt: 4, mb: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Mis Tareas
-        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+          <Typography variant="h4" component="h1">
+            Mis Tareas
+          </Typography>
+          <Button 
+            variant="outlined" 
+            color="error" 
+            onClick={handleLogout}
+          >
+            Cerrar Sesión
+          </Button>
+        </Box>
         <Button
           variant="contained"
           startIcon={<AddIcon />}
