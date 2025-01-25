@@ -32,6 +32,17 @@ Prueba tecnica para la empresa Nespra Digital Solution
 6. Iniciar el servidor:
    - `python manage.py runserver`
 
+## Configuración del Frontend
+1. Navegar a la carpeta del front del proyecto:
+   - `cd tecnical_test_front`
+
+2. Instalar dependencias:
+   - `npm install`
+
+3. Iniciar la aplicación:
+   - `npm start`
+
+La aplicación estará disponible en `http://localhost:3000`
 
 ## Documentación de la API
 
